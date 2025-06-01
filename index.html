@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Budget Tracker - With JS</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>Budget Tracker</h1>
+
+            <!-- Summary -->
+             <div class="summary">
+                <div class="card">
+                    <h3>Income</h3>
+                    <div class="amount income" id="totalIncome">R0</div>
+
+                </div>
+                <div class="card">
+                    <h3>Expenses</h3>
+                    <div class="amount expense" id="totalExpense">R0</div>
+
+                </div>
+                <div class="card">
+                    <h3>Balance</h3>
+                    <div class="amount balance" id="totalBalance">R0</div>
+
+                </div>
+             </div>
+             <!-- Add Transaction -->
+
+             <div class="form-section">
+                <h3>Add Transaction</h3>
+                <div class="form-row">
+                    <input type="text" id="description" placeholder="Description">
+                    <input type="number" id="amount" placeholder="Amount">
+                    <select id="type">
+                        <option value="Income">Income</option>
+                        <option value="Expense">Expense</option>
+                    </select>
+                </div>
+                <button onclick="addTransaction()">Add Transaction</button>
+             </div>
+             <!-- Transaction list -->
+
+             <div>
+                <h3>Recent Transactions</h3>
+                <div id="transactionList">
+                    <p>No transaction yet. Please add details above!</p>
+                </div>
+             </div>
+
+        </div> 
+        
+        <script src="script.js"></script>
+    </body>
+</html>
