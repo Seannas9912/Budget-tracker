@@ -5,15 +5,17 @@ let nextID = 1;
 
 function addTransaction() {
 
+    console.log("In addTransaction function");
+
     // Get Values From Our Form
 
-    const description = document.getElementById("description").value;
-    const amount = document.getElementById("amount").value;
-    const type = document.getElementById("type").value;
+    const description = document.getElementById('description').value;
+    const amount = document.getElementById('amount').value;
+    const type = document.getElementById('type').value;
 
     // !description (means description == null)
 
-    if (!description) {
+    if (description == null) {
         alert("Please enter a description!");
         return;
     }
@@ -29,14 +31,16 @@ function addTransaction() {
         description: description,
         amount: amount,
         type: type,
-    }
+    };
+
+    console.log("The current transaction object" + transaction.type);
 
     // Adding to list at the top (transaction = [])
     transactions.push(transaction);
 
     // Clear Form For The User
-    document.getElementById("description").value = '';
-    document.getElementById("amount").value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('amount').value = '';
 
     // Update Display summary screen
 
@@ -54,7 +58,7 @@ function updateSummary() {
     // Loop through our list of transactions
 
     for (let i=0; i < transactions.length; i++) {
-        if (transactions[i].type === 'income') {
+        if (transactions[i].type === 'Income') {
             income += transactions[i].amount;
         } else {
             expenses += transactions[i].amount;
@@ -65,11 +69,13 @@ function updateSummary() {
     const balance = income - expenses;
 
     // Update the display
-    document.getElementById("totalIncome").textContent = "R" + income;
-    document.getElementById("totalExpenses").textContent = "R" + expenses;
+    document.getElementById('totalIncome').textContent = "R" + income;
+    document.getElementById('totalExpenses').textContent = "R" + expenses;
 
-    const balanceElement = document.getElementById("balance");
+    const balanceElement = document.getElementById('balance');
     balanceElement.textContent = "R" + balance;
+
+    console.log(balance);
 
     if (balance < 0) {
         balanceElement.className = "amount balance negative";
@@ -79,7 +85,7 @@ function updateSummary() {
 }
 
 function showTransactions() {
-    const container = document.getElementById("transactionList");
+    const container = document.getElementById('transactionList');
 
     // If we have no transactions
     if (transactions.length === 0) {
@@ -95,12 +101,12 @@ function showTransactions() {
         html += `
             <div class="transaction ${t.type}-item">
                 <div class="transaction-info">
-                    <<strong>${t.description}</strong>
+                    <strong>${t.description}</strong>
                     <small>${t.type}</small>
                 </div>
                 
                 <div class="transaction-amount ${t.type}">
-                    ${t.type === 'income' ? + "+" : "-"}R${t.amount}
+                    ${t.type === 'Income' ? + "+" : "-"}R${t.amount}
                 </div>
                     <button class="delete-btn" onclick="deleteTransaction(${t.id})">Delete</button>
                 </div>

@@ -91,7 +91,7 @@ button:hover {
     font-size: 18px;
 }
 
-.trasaction {
+.transaction {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -102,14 +102,14 @@ button:hover {
     border-left: 4px solid;
 }
 
-.trasaction.income-item {border-left-color: #4caf50; }
-.trasaction.expense-item {border-left-color: #f44336; }
+.transaction.income-item {border-left-color: #4caf50; }
+.transaction.expense-item {border-left-color: #f44336; }
 
-.trasaction-info {
+.transaction-info {
     flex-grow: 1;
 }
 
-.trasaction-amount {
+.transaction-amount {
     font-weight: bold;
     margin-right: 10px;
 }
